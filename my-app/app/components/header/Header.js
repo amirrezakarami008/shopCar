@@ -31,10 +31,10 @@ export default function Header(){
 
 
     return(
-            <div className="hidden xl:block !p-0 !m-0">
+            <div className="!p-0 !m-0">
       {/* هدر سایت */}
       <Container className="py-4">
-        <Row className="h-14 flex">
+        <Row className="h-14 hidden max-xl:flex">
           {/* لوگوی اصلی */}
           <Col lg={4} className="flex justify-center items-center">
             <h1 className="text-2xl font-bold" aria-label="لیفتراک حکیمی">
@@ -44,9 +44,9 @@ export default function Header(){
           </Col>
 
           {/* منو ناوبری */}
-          <Col lg={4} className="bg-yellow-400 flex rounded-md pt-1 !justify-center !items-center">
+          <Col lg={4} className="bg-yellow-400 flex rounded-md pt-1 -mx-3 !justify-center !items-center">
             <nav aria-label="منوی اصلی">
-              <ul className="flex gap-x-4 font-bold">
+              <ul className="flex gap-x-3 font-bold">
                 <li>
                   <Link
                     href="/"
@@ -87,16 +87,7 @@ export default function Header(){
                     وبلاگ
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/about"
-                    title="درباره ما"
-                    aria-label="اطلاعات درباره ما"
-                    className="text-black no-underline hover:!text-[#292a71] hover:text-[18px] transition-all duration-150"
-                  >
-                    درباره ما
-                  </Link>
-                </li>
+                
               </ul>
             </nav>
           </Col>
@@ -118,7 +109,7 @@ export default function Header(){
                   </p>
                 </Col>
                 <Col>
-                  <LuPhone size={"22px"} aria-hidden="true" />
+                  <LuPhone size={"22px"} aria-hidden="true" className='-mx-4'/>
                 </Col>
               </Row>
             </div>

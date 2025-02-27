@@ -7,5 +7,8 @@ module.exports = {
   theme: {
     extend: {},
   },
+  screen : {
+    // xxl : '1200px'
+  },
   plugins: [],
 };
