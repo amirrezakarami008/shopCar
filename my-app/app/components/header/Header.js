@@ -5,8 +5,8 @@ import { TbMessages } from "react-icons/tb";
 import { useState, useRef } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
-export default function Header(){
 
+export default function Header() {
   const textRef = useRef(null);
   const [copied, setCopied] = useState(false);
 
@@ -16,30 +16,28 @@ export default function Header(){
       navigator.clipboard.writeText(text).then(() => {
         setCopied(true);
         toast.success("شماره تماس کپی شد!", {
-              position: "top-right",
-              autoClose: 5000,
-            });
+          position: "top-right",
+          autoClose: 5000,
+        });
         setTimeout(() => setCopied(false), 2000);
-      })
+      }).catch(() => {
+        toast.error("خطا در کپی کردن شماره تماس!", {
+          position: "top-right",
+          autoClose: 5000,
+        });
+      });
     }
   };
 
-
-
-
-
-
-
-    return(
-            <div className="!p-0 !m-0">
-      {/* هدر سایت */}
+  return (
+    <div className="!p-0 !m-0">
       <Container className="py-4">
         <Row className="h-14 hidden max-xl:flex">
           {/* لوگوی اصلی */}
           <Col lg={4} className="flex justify-center items-center">
-            <h1 className="text-2xl font-bold" aria-label="لیفتراک حکیمی">
-              <span className="sr-only">صفحه اصلی لیفتراک حکیمی</span>
-              لیفتراک حکیمی
+            <h1 className="text-2xl font-bold" aria-label="لیفتراک یزد حکیمی">
+              <span className="sr-only">صفحه اصلی لیفتراک یزد حکیمی</span>
+              لیفتراک یزد حکیمی
             </h1>
           </Col>
 
@@ -49,22 +47,22 @@ export default function Header(){
               <ul className="flex gap-x-3 font-bold">
                 <li>
                   <Link
-                    href="/"
-                    title="لیفتراک"
-                    aria-label="رفتن به لیفتراک"
-                    className="text-black no-underline hover:!text-[#292a71] hover:text-[18px] transition-all duration-150"
+                    href="/liftruck-yazd"
+                    title="لیفتراک یزد"
+                    aria-label="رفتن به صفحه لیفتراک یزد"
+                    className="nav-link"
                   >
-                    لیفتراک
+                    لیفتراک یزد
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/news"
-                    title="جک"
-                    aria-label="مشاهده جک"
-                    className="text-black no-underline hover:!text-[#292a71] hover:text-[18px] transition-all duration-150"
+                    href="/jack"
+                    title="جک لیفتراک"
+                    aria-label="مشاهده جک لیفتراک"
+                    className="nav-link"
                   >
-                    جک
+                    جک لیفتراک
                   </Link>
                 </li>
                 <li>
@@ -72,7 +70,7 @@ export default function Header(){
                     href="/products"
                     title="محصولات"
                     aria-label="مشاهده محصولات"
-                    className="text-black no-underline hover:!text-[#292a71] hover:text-[18px] transition-all duration-150"
+                    className="nav-link"
                   >
                     محصولات
                   </Link>
@@ -82,12 +80,11 @@ export default function Header(){
                     href="/blog"
                     title="وبلاگ"
                     aria-label="مشاهده وبلاگ ها"
-                    className="text-black no-underline hover:!text-[#292a71] hover:text-[18px] transition-all duration-150"
+                    className="nav-link"
                   >
                     وبلاگ
                   </Link>
                 </li>
-                
               </ul>
             </nav>
           </Col>
@@ -105,11 +102,11 @@ export default function Header(){
                 <Col onClick={handleCopy}>
                   <p className="text-[13px] text-gray-600">شماره تماس</p>
                   <p ref={textRef} className="font-bold text-[15px] -mt-3 -mx-3">
-                  {copied ? "09900175567" : "09900175567"}
+                    {copied ? "09900175567" : "09900175567"}
                   </p>
                 </Col>
                 <Col>
-                  <LuPhone size={"22px"} aria-hidden="true" className='-mx-4'/>
+                  <LuPhone size={"22px"} aria-hidden="true" className='-mx-4' />
                 </Col>
               </Row>
             </div>
@@ -117,8 +114,8 @@ export default function Header(){
             {/* دکمه مشاوره رایگان */}
             <button
               className="px-2 mx-3 bg-yellow-400 flex gap-x-2 p-1 h-12 rounded-xl justify-center items-center"
-              aria-label="مشاوره رایگان"
-              title="مشاوره رایگان"
+              aria-label="دریافت مشاوره رایگان برای لیفتراک و جک"
+              title="مشاوره رایگان لیفتراک"
             >
               <TbMessages className="text-black" size={"30px"} aria-hidden="true" />
               <span className="text-black">مشاوره رایگان</span>
@@ -127,5 +124,7 @@ export default function Header(){
         </Row>
       </Container>
     </div>
-    )
+    
+  );
+  
 }

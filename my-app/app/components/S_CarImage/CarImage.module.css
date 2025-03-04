@@ -1,0 +1,27 @@
+/* CarImage.module.css */
+.hoverEffect {
+    transition: all 0.3s ease;
+  }
+  
+  .hoverEffect:hover {
+    filter: blur(2px);
+  }
+  
+  .textOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hoverEffect:hover .textOverlay {
+    opacity: 1;
+  }
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
